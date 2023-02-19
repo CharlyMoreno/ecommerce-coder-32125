@@ -3,9 +3,12 @@ const productosRouter = Router()
 
 const {getAllProducts,saveProduct,getProductById,updateProduct,deleteProductById} = require('../controllers/api.productos.controllers')
 
+//___________________________________________  VALIDATIONS  _________________________________________________ //
+const {createProduct} = require('../middleware/validator/productosValidator.middleware')
+
 productosRouter.get('/',getAllProducts)
 
-productosRouter.post('/',saveProduct)
+productosRouter.post('/',createProduct,saveProduct)
 
 productosRouter.get('/:id',getProductById)
 
