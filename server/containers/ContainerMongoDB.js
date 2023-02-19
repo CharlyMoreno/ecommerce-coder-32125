@@ -1,16 +1,23 @@
 const mongoose = require("mongoose");
-require('dotenv').config()
+
+//___________________________________________  LOGS  _________________________________________________ //
+const {logger} = require('../utils/logger')
+//___________________________________________  CONFIG  _________________________________________________ //
+const config = require('../utils/config')
 
 // Set up default mongoose connection
-const mongoDB = process.env.MONGOURL;
+const mongoDB = config.MONGOURL;
+mongoose.set("strictQuery", false);
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Get the default connection
 const db = mongoose.connection;
+logger.info(`✅ Base de datos conectada correctamente.`)
 
 // Bind connection to error event (to get notification of connection errors)
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-
+db.on("error", err => {
+    logger.error(`MongoDB connection error: ${err}`)
+});
 class ContenedorMongoDb{
     constructor(model){
         this.collection = model;
@@ -22,7 +29,7 @@ class ContenedorMongoDb{
             return data;
         }
         catch(err){
-            console.log(err)
+            logger.error(err)
         }
     }
 
@@ -32,7 +39,7 @@ class ContenedorMongoDb{
             return data
         }
         catch(err){
-            console.log(err)
+            logger.error(err)
         }
     }
 
@@ -42,7 +49,7 @@ class ContenedorMongoDb{
             return doc; 
         }
         catch(err){
-            console.log(err)
+            logger.error(err)
         }
     }
     
@@ -58,7 +65,7 @@ class ContenedorMongoDb{
             }
         }
         catch(err){
-            console.log(err)
+            logger.error(err)
         }
       }
     
@@ -74,7 +81,7 @@ class ContenedorMongoDb{
             }
         }
         catch(err){
-            console.log(err)
+            logger.error(err)
         }
     }
 
