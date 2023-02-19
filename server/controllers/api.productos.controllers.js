@@ -1,23 +1,33 @@
 const productService = require('../services/productos.services')
 
+const {logger} = require('../utils/logger')
+const {checkValidation} = require('../middleware/validation.middleware');
+
+const ValidationError = require('../utils/exceptions/validation.exceptions')
+
 const getAllProducts = async (req,res) => {
     try{
         const productos = await productService.getAll();
         res.status(200).json(productos);
     }
     catch(err){
-        console.log(err)
+        logger.error(err)
     }
 }
 
 const saveProduct = async (req,res) => {
     try{
+        checkValidation(req)
         const productoObject = req.body;
         const productoId = await productService.save(productoObject);
         res.status(200).json(productoId);
     }
-    catch(err){
-        console.log(err)
+    catch(error){
+        if(error instanceof ValidationError) res.status(error.status).json(error.data)
+        else{
+            res.status(500).json({"error":"Ocurrio un error"})
+            logger.error(error)
+        }
     }
 }
 const getProductById = async (req,res) => {
@@ -32,7 +42,7 @@ const getProductById = async (req,res) => {
         }
     }
     catch(err){
-        console.log(err)
+        logger.error(err)
     }
 }
 
@@ -48,7 +58,7 @@ const updateProduct = async (req,res) => {
         }
     }
     catch(err){
-        console.log(err)
+        logger.error(err)
     }
 }
 
@@ -64,7 +74,7 @@ const deleteProductById = async (req,res) => {
         }
     }
     catch(err){
-        console.log(err)
+        logger.error(err)
     }
 }
 
