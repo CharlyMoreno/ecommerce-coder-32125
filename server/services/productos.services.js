@@ -1,6 +1,8 @@
 const ProductosDaoFactory = require("../daos/factory/productos.daoFactory");
 const productosDao = ProductosDaoFactory.getDao();
 
+const {logger} = require('../utils/logger')
+
 // const {asDto} = require('../dto/producto.dto')
 
 function asDto(producto){
@@ -13,7 +15,7 @@ const getAll = async () => {
         return asDto(productos);
     }
     catch(err){
-        console.log(err);
+        logger.error(err);
     }
 }
 
@@ -23,7 +25,7 @@ const save = async (product) => {
         return asDto(producto);
     }
     catch(err){
-        console.log(err);
+        logger.error(err);
     }
 }
 
@@ -34,7 +36,7 @@ const getById = async (id) => {
         else return null;
     }
     catch(err){
-        console.log(err);
+        logger.error(err);
     }
 }
 
@@ -45,7 +47,7 @@ const update = async (id,product) => {
         else return null;
     }
     catch(err){
-        console.log(err);
+        logger.error(err);
     }
 }
 
@@ -56,8 +58,21 @@ const deleteById = async (id) => {
         else return null;
     }
     catch(err){
-        console.log(err);
+        logger.error(err);
     }
 }
 
-module.exports = {getAll,save,getById,update,deleteById}
+const updateStock = async (id,newStock) => {
+    try{
+        const producto = await productosDao.updateStock(id,newStock);
+        if(producto) return asDto(producto);
+        else return null;
+    }
+    catch(err){
+        logger.error(err);
+    }
+}
+
+
+
+module.exports = {getAll,save,getById,update,deleteById,updateStock}
