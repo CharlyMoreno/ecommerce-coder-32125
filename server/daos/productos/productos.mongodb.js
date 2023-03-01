@@ -11,6 +11,16 @@ class ProductosDaoMongoDB extends ContenedorMongoDb {
     constructor() {
         super(productosModels);
     }
+
+    async updateStock(id,newStock){
+        try{
+            const data = await this.collection.findByIdAndUpdate(id,{stock:newStock})
+            return data
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
 }
 
 module.exports = ProductosDaoMongoDB;
