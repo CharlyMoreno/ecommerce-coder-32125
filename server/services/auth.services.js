@@ -3,6 +3,7 @@ const usuariosDao = UsuariosDaoFactory.getDao();
 
 const UnauthorizedException = require('../utils/exceptions/auth.exceptions')
 const {generateToken} = require('../utils/generateToken')
+const {enviarMailRegister} = require('../utils/emails/register.email')
 const bCrypt = require('bcrypt');
 
 function createHash(password) {
@@ -26,6 +27,7 @@ const register = async (user) => {
             fotoPerfil: user.fotoPerfil
         }
         await usuariosDao.save(usuario)
+        enviarMailRegister(usuario)
     }
     else throw new UnauthorizedException("Ya existe un usuario con ese username")
 }
