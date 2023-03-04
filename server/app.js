@@ -6,6 +6,7 @@ const app = express()
 const apiProductosRoutes = require('./routes/api.productos.routes')
 const authRoutes = require('./routes/auth.routes')
 const apiCarritoRoutes = require('./routes/api.carrito.routes')
+const apiMensajes = require('./routes/api.mensajes.routes')
 
 app.use(express.static('public'))
 app.use(express.json())
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/api/productos',apiProductosRoutes)
 app.use('/api/auth',authRoutes)
 app.use('/api/carrito', apiCarritoRoutes)
+app.use('/api/chat', apiMensajes)
 
 app.get('/',(req, res) => {
     res.status(200).json({"mensaje":"Hola Mundo"})
