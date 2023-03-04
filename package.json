@@ -4,7 +4,7 @@
   "description": "Realizada por Carlos Moreno - Comisión 32125 - CoderHouse 2023",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test/*.test.js",
     "start": "node ./server/server.js",
     "dev": "nodemon ./server/server.js"
   },
@@ -28,5 +28,11 @@
     "log4js": "^6.7.1",
     "mongoose": "^6.9.2",
     "nodemailer": "^6.9.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
   }
 }
