@@ -42,5 +42,10 @@ const login = async (username,password) =>{
     else throw new UnauthorizedException("Username o Password incorrecta")
 }
 
-module.exports = {register,login}
+const deleteUserByUsername = async (username) => {
+    const deleteUser = await usuariosDao.deleteUserByUsername(username)
+    return deleteUser
+}
+
+module.exports = {register,login,deleteUserByUsername}
 

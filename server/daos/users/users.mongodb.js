@@ -22,6 +22,16 @@ class UsersDaoMongoDB extends ContainerMongoDB {
         }
     }
 
+    async deleteUserByUsername(username){
+        try{
+            const data = await this.collection.deleteOne({ username: username });
+            return data
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
 }
 
 module.exports = UsersDaoMongoDB;

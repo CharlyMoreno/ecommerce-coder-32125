@@ -16,7 +16,7 @@ const transporter = createTransport({
 async function sendEmail(mailOptions){
     try{
         const info = await transporter.sendMail(mailOptions)
-        console.log(info)
+        console.log(`Email enviado correctamente a ${mailOptions.to} `)
         return info;
     }
     catch(err){
