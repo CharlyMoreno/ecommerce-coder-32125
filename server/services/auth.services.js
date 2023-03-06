@@ -6,6 +6,8 @@ const {generateToken} = require('../utils/generateToken')
 const {enviarMailRegister} = require('../utils/emails/register.email')
 const bCrypt = require('bcrypt');
 
+const {asDto} = require('../dto/user.dto')
+
 function createHash(password) {
     return bCrypt.hashSync(
         password,
@@ -47,5 +49,10 @@ const deleteUserByUsername = async (username) => {
     return deleteUser
 }
 
-module.exports = {register,login,deleteUserByUsername}
+const getUserById = async (id) => {
+    const user = await usuariosDao.getById(id)
+    return asDto(user)
+}
+
+module.exports = {register,login,deleteUserByUsername,getUserById}
 
