@@ -1,0 +1,47 @@
+components:
+  schemas:
+    Product:
+      type: object
+      required:
+        - id
+        - nombre
+        - precio
+        - foto
+        - stock
+      properties:
+        id:
+          type: string
+          description: Id autogenerado para producto
+        nombre:
+          type: string
+          description: Nombre del producto.
+        timestamp:
+          type: Date
+          description: Fecha y hora de creacion de producto
+        precio:
+          type: number
+          description: Precio del producto.
+        descripcion:
+          type: string
+          description: Descripcion de Producto
+        codigo:
+          type: string
+          description: Codigo del producto (###-###)
+        foto:
+          type: string
+          description: Url de foto para producto
+        stock:
+          type: number
+          description: Cantidad de stock disponible del producto
+        categoria:
+          type: string
+          description: ID de categoria 
+      example:
+        id: 4ughd73658fnsk85dh58sk
+        nombre: "Mouse Glorious Model D (Glossy White)"
+        precio: 19000
+        foto: "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_21919_Mouse_Glorious_Model_D__Glossy_White__a0f9f2cc-grn.jpg"
+        descripcion: "Disco descripcion bla bla bla."
+        codigo: "BBB-111"
+        stock: 20
+         

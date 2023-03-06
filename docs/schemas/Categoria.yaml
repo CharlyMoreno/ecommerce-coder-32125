@@ -1,0 +1,18 @@
+components:
+  schemas:
+    Categoria:
+      type: object
+      required:
+        - id
+        - nombre
+      properties:
+        id:
+          type: string
+          description: Id autogenerado para categoria
+        nombre:
+          type: string
+          description: Nombre de la categoria.
+      example:
+        id: 4ughd73658fnsk85dh58sk
+        nombre: "Perifericos"
+         

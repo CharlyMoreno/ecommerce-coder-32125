@@ -1,0 +1,15 @@
+paths:
+  /api/productos:
+    get:
+      summary: Get All productos
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: Devuelve todos los productos disponibles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'

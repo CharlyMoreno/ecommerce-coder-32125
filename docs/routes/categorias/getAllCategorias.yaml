@@ -1,0 +1,15 @@
+paths:
+  /api/categorias:
+    get:
+      summary: Get All categorias
+      tags:
+        - Categorias
+      responses:
+        "200":
+          description: Devuelve todas las categorias disponibles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Categoria'
