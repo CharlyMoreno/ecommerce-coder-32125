@@ -4,8 +4,15 @@ const {logger} = require('./utils/logger')
 //___________________________________________  CONFIG  _________________________________________________ //
 const config = require('./utils/config')
 
-const server = app.listen(config.PORT,()=>{
-    logger.info(`✅ Listening on port ${config.PORT} || http://localhost:8080/`)
+const http = require('http');
+const httpServer = http.createServer(app);
+const {createSocketIO} = require('./sockets')
+
+createSocketIO(httpServer)
+
+const server = httpServer.listen(config.PORT,()=>{
+    logger.info(`✅ Listening on port ${config.PORT} || http://localhost:${config.PORT}/`)
 })
 
 server.on("error",err=>logger.error(err));
+

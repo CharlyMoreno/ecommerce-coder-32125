@@ -1,0 +1,41 @@
+<div class="title_box">
+    <h1><i class="fa fa-shopping-cart" aria-hidden="true"></i>Carrito</h1>
+    <p>Carrito del usuario @{{carrito.user.username}}</p>
+</div>
+
+{{#if error}}
+<div class="alert alert-danger" role="alert">
+    {{error}}
+</div>
+{{/if}}
+
+<div class="container box">
+    <div class="tabla">
+        <table class="" style="text-align:center;">
+            <thead class="table_header">
+                <tr>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Nombre Producto</th>
+                    <th scope="col">Precio Unitario</th>
+                    <th scope="col">Precio Total</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each carrito.productos}}
+                    <tr>
+                        <td>{{cantidad}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{precioAcumulado}}</td>
+                        <td><a href="/carrito/deleteProducto/{{producto.id}}" style="color:red"><i class="fa fa-times"></i></a></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="info">
+        <h1>TOTAL: $ {{carrito.total}}</h1>
+        <a href="/carrito/confirmarCompra" class="btn btn-success">CONFIRMAR COMPRAR</a>
+    </div>
+</div>

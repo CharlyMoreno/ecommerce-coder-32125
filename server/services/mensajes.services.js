@@ -3,11 +3,11 @@ const mensajesDao = MensajesDaoFactory.getDao();
 
 const {logger} = require('../utils/logger')
 
-// const {asDto} = require('../dto/producto.dto')
+const {asDto} = require('../dto/mensajes.dto')
 
-function asDto(mensaje){
-    return mensaje;
-}
+// function asDto(mensaje){
+//     return mensaje;
+// }
 
 const getMensajesByEmail = async (email) => {
     const mensajes = await mensajesDao.getMensajesByEmail(email)
@@ -26,4 +26,9 @@ const guardarMensaje = async (data,idUser) => {
     return asDto(mensajeGuardado);
 }
 
-module.exports = {guardarMensaje,getMensajesByEmail}
+const getAllMensajes = async () => {
+    const mensajes = await mensajesDao.getAllMensajes()
+    return asDto(mensajes)
+}
+
+module.exports = {guardarMensaje,getMensajesByEmail,getAllMensajes}

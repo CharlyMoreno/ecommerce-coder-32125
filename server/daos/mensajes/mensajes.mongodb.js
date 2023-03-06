@@ -19,6 +19,16 @@ class MensajesMongoDB extends ContenedorMongoDb {
             console.log(err)
         }
     }
+
+    async getAllMensajes() {
+        try{
+            const data = await this.collection.find().populate('user')
+            return data
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
 }
 
 module.exports = MensajesMongoDB;
