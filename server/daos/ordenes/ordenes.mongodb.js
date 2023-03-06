@@ -20,6 +20,16 @@ class OrdenesDaoMongoDB extends ContenedorMongoDb {
             console.log(err)
         }
     }
+
+    async getOrdenesByID(id){
+        try{
+            const data = await this.collection.findOne({_id:id}).populate('user')
+            return data
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
 }
 
 module.exports = OrdenesDaoMongoDB;
