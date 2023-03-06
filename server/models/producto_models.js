@@ -32,12 +32,10 @@ const Schema = new mongoose.Schema({
         required: true,
         max: 5000
     },
-    categorias: [
-        {
-            type: Object,
-            ref: "categoria",
-        }
-    ]
+    categoria: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "categoria",
+    }
 })
 
 const ProductosModel = mongoose.model("productos", Schema)
