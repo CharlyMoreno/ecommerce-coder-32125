@@ -29,7 +29,7 @@ const register = async (req,res) =>{
     }
     catch(error){
         if(error instanceof ValidationError) res.status(error.status).json(error.data)
-        if(error instanceof UnauthorizedException) res.status(error.status).json({"error":error.message})
+        else if(error instanceof UnauthorizedException) res.status(error.status).json({"error":error.message})
         else{
             res.status(500).json({"error":"Ocurrio un error"})
             logger.error(error)
