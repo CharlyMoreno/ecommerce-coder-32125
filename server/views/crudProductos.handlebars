@@ -1,0 +1,42 @@
+<style>
+    td img{
+        height: 30px;
+        width: 30px;
+        border-radius: 30px;
+    }
+</style>
+
+<div class="title_box">
+    <h1>Crud Productos</h1>
+</div>
+
+
+<div class="container box text-center">
+    <div class="tabla">
+        <table class="" style="text-align:center;">
+            <thead class="table_header">
+                <tr>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each productos}}
+                    <tr>
+                        <td><img src={{foto}} alt="" srcset=""></td>
+                        <td>{{codigo}}</td>
+                        <td>{{nombre}}</td>
+                        <td>{{precio}}</td>
+                        <td>{{stock}}</td>
+                        <td><a href="/crud/productos/editar/{{id}}">Editar</a></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <a class="boton_verde" href="/crud/productos/crear">Crear Productos</a> 
+</div>

@@ -1,0 +1,43 @@
+<div class="title_box">
+    <h1>Editar Producto</h1>
+</div>
+
+<div class="container">
+    {{#if error}}
+    <div class="alert alert-danger" role="alert">
+        {{error}}
+    </div>
+    {{/if}}
+
+    <form action="/crud/productos/editar/{{producto.id}}" method="post">
+        <div class="form-group input-group">
+            <input id="nombre" name="nombre" class="form-control" placeholder="Nombre" type="text" value="{{producto.nombre}}">
+        </div>
+        <div class="form-group input-group">
+            <input id="precio" name="precio" class="form-control" placeholder="Precio" type="number" value="{{producto.precio}}">
+        </div>
+        <div class="form-group input-group">
+            <input id="foto" name="foto" class="form-control" placeholder="Foto URL" type="text" value="{{producto.foto}}">
+        </div>
+        <div class="form-group input-group">
+            <input id="descripcion" name="descripcion" class="form-control" placeholder="Descripcion" type="text" value="{{producto.descripcion}}">
+        </div>
+        <div class="form-group input-group">
+            <input id="codigo" name="codigo" class="form-control" placeholder="Codigo" type="text" value="{{producto.codigo}}">
+        </div>
+        <div class="form-group input-group">
+            <input id="stock" name="stock" class="form-control" placeholder="Stock" type="number" value="{{producto.stock}}">
+        </div>  
+        <div class="form-group input-group">
+            <select class="custom-select" style="max-width: 120px;" id="categoria" name="categoria">
+                {{#each categorias}}
+                    <option value="{{id}}">{{nombre}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <button class="w-100 btn btn-lg btn-success" type="submit">Editar Producto</button>
+        <a href="/crud/productos" style="text-align:center; color: red">Volver</a>
+
+    </form>
+
+</div>

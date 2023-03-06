@@ -1,0 +1,21 @@
+<div class="title_box">
+    <h1><i class="fa fa-comments" aria-hidden="true"></i> Chat</h1>
+    <p>Chat para poder interactuar con otras personas!</p>
+</div>
+<div class="container">
+    <div class="mensajes_box">
+        {{#each mensajes}}
+            <div class="mensaje">
+                <p class="usuario">{{user.username}} - {{timestamp}}</p>
+                <p class="texto">{{texto}}</p>
+            </div>
+        {{/each}}
+    </div>
+    <div class="form-group input-group">
+        <input id="texto" name="texto" class="form-control" placeholder="Mensaje" type="text">
+        <button class="btn btn-success" id="enviarMensaje">Enviar</button>
+    </div> <!-- form-group// -->
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/chat.js"></script>

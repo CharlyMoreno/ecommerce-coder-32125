@@ -1,0 +1,97 @@
+<style>
+
+    .form-signin {
+        max-width: 75%;
+        padding: 15px;
+    }
+
+    .form-signin .form-floating:focus-within {
+        z-index: 2;
+    }
+
+    .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+        p a {
+        color: #D3E661;
+    }
+</style>
+
+<main class="form-signin w-100 m-auto text-center">
+    <h1 class="h3 mb-3 fw-normal">Register</h1>
+
+    {{#if signupMessage}}
+    <div class="alert alert-danger" role="alert">
+        {{signupMessage}}
+    </div>
+    {{/if}}
+
+    <form method="post" action="/auth/register">
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input id="nombre" name="nombre" class="form-control" placeholder="Nombre Completo" type="text">
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            </div>
+            <input id="email" name="email" class="form-control" placeholder="Email address" type="email">
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
+            </div>
+            <input id="username" name="username" class="form-control" placeholder="Username" type="text">
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group ">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input id="password" name="password" class="form-control" placeholder="Contraseña" type="password">
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+            </div>
+            <input id="numeroTel" name="numeroTel" class="form-control" placeholder="Numero Telefono" type="text">
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-home"></i> </span>
+            </div>
+            <input id="direccion" name="direccion" class="form-control" placeholder="Direccion" type="text">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-home"></i> </span>
+            </div>
+            <input id="pais" name="pais" class="form-control" placeholder="Pais" type="text">
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-camera"></i> </span>
+            </div>
+            <input id="fotoPerfil" name="fotoPerfil" class="form-control" placeholder="Foto Perfil" type="text">
+        </div> <!-- form-group// -->
+
+
+        <button class="w-100 btn btn-lg btn-success" type="submit">REGISTER</button>
+
+        <p class="mt-5 mb-3">¿Ya tenes cuenta? <a href="/auth/login">Click aquí para iniciar sesion</a></p>
+
+    </form>
+</main>

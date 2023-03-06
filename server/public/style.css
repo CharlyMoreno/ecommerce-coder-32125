@@ -1,0 +1,192 @@
+* {
+    font-family: 'DM Sans', sans-serif;
+    /* text-align: center; */
+
+}
+
+body{
+    background-color: #1F2023;
+    color:white;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 3em;
+}
+
+.main{
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 50px;
+    margin:0;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin:0px;
+    margin-top: 10px;
+}
+
+.card {
+    background-color: transparent;
+}
+
+.card-text{
+    color:#8e8e8e
+}
+
+.card-precio{
+    color: #EAFF6A;
+    font-weight: bold;
+}
+
+.card a{
+    background-color: transparent;
+    border: 1px solid #EAFF6A;
+    border-radius: 20px;
+    color:#EAFF6A;
+}
+
+table{
+    width: 100%;
+}
+
+.tabla{
+    background-color: #27282D;
+    width: 75%;
+    border-radius:30px;
+    padding: 25px;
+    margin:auto;
+    margin-top:40px;
+    margin-bottom: 40px;
+    color: white !important;
+}
+
+.table_header th{
+    border-bottom: 3px solid #D3E661;
+    padding:15px;
+    border-collapse: collapse;
+}
+
+.tabla td {
+    padding:10px;
+}
+
+.mensajes_box{
+    background-color: #27282D;
+    width: 75%;
+    border-radius:30px;
+    padding: 25px;
+    margin:auto;
+    margin-bottom: 40px;
+    color: white !important;
+}
+
+.mensaje .usuario{
+    margin:0px;
+    color:#8e8e8e;
+    font-size: 14px;
+}
+
+.mensaje .texto{
+    margin:0px;
+    font-weight: bold;
+}
+
+.mensaje {
+    margin-bottom: 10px;
+    border: 1px solid #D3E661;
+    border-radius: 20px;
+    padding:10px
+}
+
+.title_box{
+    text-align: center;
+    padding:10px
+}
+
+.title_box i{
+    color:#D3E661;
+    margin-right: 8px;
+}
+
+.info{
+    text-align: center;
+}
+
+.boton_verde{
+    background-color: #D3E661;
+    padding: 15px 10px;
+    color:#1F2023;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    margin:10px 0px;
+}
+
+.tabla td a{
+    color:#D3E661;
+}
+
+.nav-user{ 
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+
+.nav-link{
+    color:white !important;
+}
+
+.nav-link i {
+    color:#D3E661
+}
+
+.navbar-brand{
+    color:#D3E661 !important;
+}
+
+.navbar {
+    border:0px;
+    border-bottom: 2px;
+    border-style: solid;
+    border-color: #D3E661;
+    background-color: #121012;
+}
+
+footer{
+    border:0px;
+    border-top: 2px;
+    border-style: solid;
+    border-color: #D3E661;
+    color:white !important;
+    background-color: #121012;
+    margin-top: 50px;
+}
+
+.btn_login{
+    color:#D3E661;
+    padding:10px;
+    border: 1px solid #EAFF6A;
+    border-radius: 10px;
+}
+
+.btn_register{
+    color:#121012;
+    padding:10px;
+    background-color: #D3E661;
+    border-radius: 10px;
+}
+
+.orden_detalle span{
+    font-weight: bold;
+    color:#D3E661
+}
+
+.title_box a{
+    color:#D3E661
+}

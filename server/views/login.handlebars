@@ -1,0 +1,45 @@
+<style>
+    .form-signin {
+        max-width: 330px;
+        padding: 15px;
+    }
+
+    .form-signin .form-floating:focus-within {
+        z-index: 2;
+    }
+
+    .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    p a {
+        color: #D3E661;
+    }
+</style>
+
+
+<main class="form-signin w-100 m-auto text-center">
+    <h1 class="h3 mb-3 fw-normal">Login</h1>
+    {{#if signinMessage}}
+    <div class="alert alert-danger" role="alert">
+        {{signinMessage}}
+    </div>
+    {{/if}}
+    <form method="post" action="/auth/login">
+        <div class="form-floating">
+            <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+        </div>
+        <button class="w-100 btn btn-lg btn-success" type="submit">LOGIN</button>
+        <p class="mt-5 mb-3">¿Aún no tienes cuenta? <a href="/auth/register">Click aquí</a></p>
+    </form>
+</main>

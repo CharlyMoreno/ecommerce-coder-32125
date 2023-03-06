@@ -1,0 +1,31 @@
+<style>
+    .galleryCards{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+</style>
+
+<h1 class="title_box"><i class="fa fa-list-alt" aria-hidden="true"></i>Productos</h1>
+
+<div class="container">
+    {{#if productos}}
+    <div class="galleryCards">
+        {{#each productos}}
+        <div class="card" style="width: 18rem;">
+            <img src="{{foto}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{nombre}}</h5>
+                <p class="card-text">{{descripcion}}</p>
+                <h5 class="card-precio">$ {{precio}}</h5>
+                <a href="/carrito/addProducto/{{id}}/1" class="btn btn-info">AGREGAR AL CARRITO</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <h1>No se encontraron productos</h1>
+    {{/if}}
+</div>

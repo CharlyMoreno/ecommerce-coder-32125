@@ -1,0 +1,40 @@
+<div class="title_box">
+    <h1>Orden Detalle</h1>
+    <a href="/ordenes">Ver todas las ordenes</a>
+</div>
+
+{{#if error}}
+<div class="alert alert-danger" role="alert">
+    {{error}} <a href="/ordenes">Volver</a>
+</div>
+{{/if}}
+
+<div class="container orden_detalle">
+    <div>
+        <h5><span>Fecha:</span> {{orden.timestamp}} </h5>
+        <h5><span>Total:</span> $ {{orden.total}}</h5>
+    </div>
+    <div class="tabla">
+        <table style="text-align:center;">
+            <thead class="table_header">
+                <tr>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each orden.productos}}
+                    <tr>
+                        <td>{{cantidad}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{precioAcumulado}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+</div>
