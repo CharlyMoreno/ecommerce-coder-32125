@@ -1,0 +1,17 @@
+paths:
+  /api/categorias/{id}:
+    delete:
+      summary: Eliminar categoria by id
+      tags:
+        - Categorias
+      parameters:
+      - name: id
+        in: path
+        description: Parametro de id de categoria
+        required: true
+        type: string
+      responses:
+        "204":
+          description: No additional info attached
+        "404":
+          description: Categoria not found Error

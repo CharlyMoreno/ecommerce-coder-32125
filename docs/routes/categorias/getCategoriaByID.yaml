@@ -1,0 +1,21 @@
+paths:
+  /api/categorias/{id}:
+    get:
+      summary: Get Categoria By ID
+      tags:
+        - Categorias
+      parameters:
+      - name: id
+        in: path
+        description: Parametro de id de categoria
+        required: true
+        type: ObjectId
+      responses:
+        "200":
+          description: Categoria devuelta por id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        "404":
+          description: Categoria not found Error

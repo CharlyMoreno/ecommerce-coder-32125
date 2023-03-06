@@ -1,0 +1,44 @@
+components:
+  requestBodies:
+    UserRegister:
+      type: object
+      required:
+        - nombre
+        - username
+        - password
+        - email
+        - numeroTel
+      properties:
+        nombre:
+          type: string
+          description: Nombre del Usuario
+        username:
+          type: string
+          description: Username del usuario
+        password:
+          type: string
+          description: Password del usuario (+5 caracteres)
+        email:
+          type: string
+          description: Email del usuario
+        numeroTel:
+          type: string
+          description: Numero de Telefono del usuario
+        direccion:
+          type: string
+          description: Direccion de residencia del usuario
+        pais:
+          type: string
+          description: Pais de residencia del usuario
+        fotoPerfil:
+          type: string
+          description: URL Foto Perfil del usuario
+      example:
+         nombre: Usuario Creado
+         username: user1
+         password: pass123
+         email: user@test.com.ar
+         numeroTel: +5492615555555
+         direccion: Calle1 123
+         pais: Argentina
+         fotoPerfil: https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg

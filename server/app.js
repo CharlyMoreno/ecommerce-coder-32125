@@ -3,6 +3,12 @@ const app = express()
 const {engine} = require('express-handlebars')
 const cookies = require('cookie-parser')
 
+// ________________________________________ swagger ________________________________________|
+
+const swaggerUi = require('swagger-ui-express')
+const { swaggerSpecs } = require('./swaggerSpecs');
+
+
 //___________________________________________  ROUTES  _________________________________________________ //
 const apiProductosRoutes = require('./routes/api.productos.routes')
 const authRoutes = require('./routes/api.auth.routes')
@@ -23,6 +29,10 @@ app.use(express.static(__dirname + '/public'));
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views');
+
+// ruta swagger ________________________________________
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs))
+
 
 app.use('/api/productos',apiProductosRoutes)
 app.use('/api/auth',authRoutes)

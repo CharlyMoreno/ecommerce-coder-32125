@@ -1,0 +1,19 @@
+paths:
+  /api/categorias:
+    post:
+      summary: Crear nueva categoria
+      tags:
+        - Categorias
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/NewCategoria'
+      responses:
+        "201":
+          description: Categoria Creada.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'

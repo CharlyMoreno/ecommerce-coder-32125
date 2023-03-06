@@ -1,0 +1,27 @@
+paths:
+  /api/categorias/{id}:
+    put:
+      summary: Updates Categoria
+      tags:
+        - Categorias
+      parameters:
+      - name: id
+        in: path
+        description: Parametro de id de categoria
+        required: true
+        type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewCategoria'
+      responses:
+        "200":
+          description: The updated categoria.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        "404":
+          description: Categoria not found Error

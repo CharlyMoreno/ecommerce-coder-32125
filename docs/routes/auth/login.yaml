@@ -1,0 +1,15 @@
+paths:
+  /api/auth/login:
+    post:
+      summary: Login usuario
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/UserLogin'
+      responses:
+        "201":
+          description: Usuario Logueado.

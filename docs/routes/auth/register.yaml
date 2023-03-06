@@ -1,0 +1,15 @@
+paths:
+  /api/auth/register:
+    post:
+      summary: Registrar un nuevo usuario
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/UserRegister'
+      responses:
+        "201":
+          description: Usuario Registrado.

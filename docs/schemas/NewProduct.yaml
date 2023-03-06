@@ -1,0 +1,43 @@
+components:
+  requestBodies:
+    NewProduct:
+      type: object
+      required:
+        - nombre
+        - precio
+        - foto
+        - stock
+        - codigo
+        - descripcion
+      properties:
+        nombre:
+          type: string
+          description: Nombre del producto.
+        timestamp:
+          type: Date
+          description: Fecha y hora de creacion de producto
+        precio:
+          type: number
+          description: Precio del producto.
+        descripcion:
+          type: string
+          description: Descripcion de Producto
+        codigo:
+          type: string
+          description: Codigo del producto (###-###)
+        foto:
+          type: string
+          description: Url de foto para producto
+        stock:
+          type: number
+          description: Cantidad de stock disponible del producto
+        categoria:
+          type: string
+          description: ID de categoria 
+      example:
+         nombre: Silla Gamer Level Up Ares Negra y Roja
+         precio: 64860
+         foto: https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_34983_Silla_Gamer_Level_Up_Ares_Negra_y_Roja_d22fa564-grn.jpg
+         stock: 10
+         codigo: SSS-001
+         descripcion: Silla gamer comoda

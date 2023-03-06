@@ -30,7 +30,9 @@
     "log4js": "^6.7.1",
     "mongoose": "^6.9.2",
     "nodemailer": "^6.9.1",
-    "socket.io": "^4.6.1"
+    "socket.io": "^4.6.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",

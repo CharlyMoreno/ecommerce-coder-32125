@@ -1,0 +1,12 @@
+components:
+  requestBodies:
+    NewCategoria:
+      type: object
+      required:
+        - nombre
+      properties:
+        nombre:
+          type: string
+          description: Nombre de la categoria.
+      example:
+         nombre: Sillas Gamer
