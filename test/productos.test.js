@@ -44,7 +44,7 @@ describe("TEST APIREST PRODUCTOS", () => {
       expect(prod.codigo).to.eql(producto.codigo);
       expect(prod.foto).to.eql(producto.foto);
       expect(prod.stock).to.eql(Number(producto.stock));
-      productId = prod._id;
+      productId = prod.id;
       console.log(productId);
     });
   });
