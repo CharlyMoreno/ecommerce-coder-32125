@@ -6,7 +6,6 @@ const config = require('../utils/config')
 
 infoRoutes.get('/', (req, res) => {
     const info = getInfo()
-    console.log(info)
     res.render('info',{info:info})
 })
 
