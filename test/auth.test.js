@@ -27,7 +27,7 @@ describe("TEST AUTH USUARIOS", () => {
 
   describe("GET", () => {
     it("debería retornar un status 200", async () => {
-      const response = await request.get("/");
+      const response = await request.get("/info");
       expect(response.status).to.eql(200);
     });
   });
