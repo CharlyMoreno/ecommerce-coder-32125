@@ -3,11 +3,11 @@ const productosDao = ProductosDaoFactory.getDao();
 
 const {logger} = require('../utils/logger')
 
-// const {asDto} = require('../dto/producto.dto')
+const {asDto} = require('../dto/producto.dto')
 
-function asDto(producto){
-    return producto;
-}
+// function asDto(producto){
+//     return producto;
+// }
 
 const getAll = async () => {
     try{
