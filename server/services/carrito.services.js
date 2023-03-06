@@ -8,9 +8,11 @@ const CarritoException = require('../utils/exceptions/carrito.exceptions')
 
 const {enviarMailCompra} = require('../utils/emails/compra.email')
 
-function asDto(carrito){
-    return carrito;
-}
+const {asDto} = require('../dto/carrito.dto')
+
+// function asDto(carrito){
+//     return carrito;
+// }
 
 async function crearCarrito(user){
     const carritoNew = {
@@ -41,10 +43,9 @@ const confirmarCompra = async (currentUser) => {
     carrito.productos.forEach(async element => {
       const producto = element.producto
       const newStock = producto.stock -= element.cantidad
-      // await ProductoServices.updateStock(producto.id,newStock)
-
       //Agrego producto a la orden
       orden.productos.push({producto:{nombre:producto.nombre,foto:producto.foto,precio:producto.precio},cantidad:element.cantidad})
+      await ProductoServices.updateStock(producto.id,newStock)
     });
 
     await OrdenesServices.save(orden)
@@ -66,7 +67,7 @@ const deleteProduct = async (currentUser,idProduct) => {
   const producto = await ProductoServices.getById(idProduct)
   if(!producto) throw new ProductoServices("Producto invalido.")
 
-  const indexProducto = carrito.productos.findIndex(element => element.producto == producto.id)    
+  const indexProducto = carrito.productos.findIndex(element => element.producto.equals(producto.id))    
   if(indexProducto == -1) throw new CarritoException("El carrito no contiene este producto.")
   else{
     //Elimino el producto del carrito
@@ -84,18 +85,18 @@ const deleteProduct = async (currentUser,idProduct) => {
 const addProduct = async (currentUser,idProduct,cantidad) => {
   if(!idProduct || cantidad <= 0) throw new CarritoException("Parametros invalidos.")
   
-  const carrito = await carritoDao.getCarritoByUser(currentUser);
-  if(!carrito) throw new CarritoException("El usuario no posee un carrito.")
+  let carrito = await carritoDao.getCarritoByUser(currentUser);
+  if(!carrito) carrito = await crearCarrito(currentUser)
 
   const producto = await ProductoServices.getById(idProduct)
   if(!producto) throw new ProductoServices("Producto invalido.")
   
-  const indexProducto = carrito.productos.findIndex(element => element.producto == producto.id)    
+  const indexProducto = carrito.productos.findIndex(element => element.producto.equals(producto.id))        
   if(indexProducto == -1){
     if(producto.stock < cantidad) throw new CarritoException(`Stock insuficiente para ${producto.nombre}`)
     //No tiene el producto ya agregado al carrito
     const productoCantidad = {
-      producto: producto,
+      producto: producto.id,
       cantidad: cantidad
     }
     carrito.productos.push(productoCantidad);
@@ -115,7 +116,7 @@ const addProduct = async (currentUser,idProduct,cantidad) => {
 
 const getCarritoByUser = async (currentUser) => {
     let carrito = await carritoDao.getCarritoByUser(currentUser);
-    if (!carrito) carrito = crearCarrito(currentUser)
+    if (!carrito) carrito = await crearCarrito(currentUser)
     return asDto(carrito);
 } 
 
